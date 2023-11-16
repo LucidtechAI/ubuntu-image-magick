@@ -12,9 +12,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libxext-dev \
     libxml2-dev \
     make \
+    pkg-config \
     wget \
     zlib1g-dev \
-    pkg-config \
     && rm -rf /var/lib/apt/lists
 
 ARG GHOSTSCRIPT_VERSION=10.02.1
