@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
@@ -29,8 +29,8 @@ RUN gs --version
 
 ARG IMAGE_MAGICK_VERSION=7.1.1-32
 WORKDIR /image_magick_build
-RUN wget https://imagemagick.org/archive/releases/ImageMagick-$IMAGE_MAGICK_VERSION.tar.gz
-RUN tar -xvf ImageMagick-$IMAGE_MAGICK_VERSION.tar.gz
+RUN wget https://imagemagick.org/archive/releases/ImageMagick-$IMAGE_MAGICK_VERSION.tar.xz
+RUN tar -xvf ImageMagick-$IMAGE_MAGICK_VERSION.tar.xz
 RUN cd ImageMagick-$IMAGE_MAGICK_VERSION/ && ./configure && make -j4 && make install && ldconfig /usr/local/lib
 RUN magick --version
 RUN convert --version
